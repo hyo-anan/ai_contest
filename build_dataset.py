@@ -1,5 +1,5 @@
 import json
-
+"""데이터를 만드는 코드입니다."""
 # Load the data from the JSON file
 with open('/workspace/jun4090/project/ai말평/일상대화요약_test.json', 'r', encoding='utf-8') as file:
     data = json.load(file)
