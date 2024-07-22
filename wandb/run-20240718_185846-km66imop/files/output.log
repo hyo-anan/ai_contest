@@ -1,0 +1,52 @@
+  0%|                                                                                                                                                                   | 0/759 [00:00<?, ?it/s]Traceback (most recent call last):
+  File "/workspace/jun4090/project/ai말평/train.py", line 122, in <module>
+    trainer.train()
+  File "/workspace/jun4090/anaconda3/envs/temp/lib/python3.9/site-packages/trl/trainer/sft_trainer.py", line 440, in train
+    output = super().train(*args, **kwargs)
+  File "/workspace/jun4090/anaconda3/envs/temp/lib/python3.9/site-packages/transformers/trainer.py", line 1624, in train
+    return inner_training_loop(
+  File "/workspace/jun4090/anaconda3/envs/temp/lib/python3.9/site-packages/transformers/trainer.py", line 1961, in _inner_training_loop
+    tr_loss_step = self.training_step(model, inputs)
+  File "/workspace/jun4090/anaconda3/envs/temp/lib/python3.9/site-packages/transformers/trainer.py", line 2902, in training_step
+    loss = self.compute_loss(model, inputs)
+  File "/workspace/jun4090/anaconda3/envs/temp/lib/python3.9/site-packages/transformers/trainer.py", line 2925, in compute_loss
+    outputs = model(**inputs)
+  File "/workspace/jun4090/anaconda3/envs/temp/lib/python3.9/site-packages/torch/nn/modules/module.py", line 1501, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/workspace/jun4090/anaconda3/envs/temp/lib/python3.9/site-packages/accelerate/utils/operations.py", line 825, in forward
+    return model_forward(*args, **kwargs)
+  File "/workspace/jun4090/anaconda3/envs/temp/lib/python3.9/site-packages/accelerate/utils/operations.py", line 813, in __call__
+    return convert_to_fp32(self.model_forward(*args, **kwargs))
+  File "/workspace/jun4090/anaconda3/envs/temp/lib/python3.9/site-packages/torch/amp/autocast_mode.py", line 14, in decorate_autocast
+    return func(*args, **kwargs)
+  File "/workspace/jun4090/anaconda3/envs/temp/lib/python3.9/site-packages/peft/peft_model.py", line 918, in forward
+    return self.base_model(
+  File "/workspace/jun4090/anaconda3/envs/temp/lib/python3.9/site-packages/torch/nn/modules/module.py", line 1501, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/workspace/jun4090/anaconda3/envs/temp/lib/python3.9/site-packages/peft/tuners/tuners_utils.py", line 94, in forward
+    return self.model.forward(*args, **kwargs)
+  File "/workspace/jun4090/anaconda3/envs/temp/lib/python3.9/site-packages/accelerate/hooks.py", line 166, in new_forward
+    output = module._old_forward(*args, **kwargs)
+  File "/workspace/jun4090/anaconda3/envs/temp/lib/python3.9/site-packages/transformers/models/llama/modeling_llama.py", line 1176, in forward
+    outputs = self.model(
+  File "/workspace/jun4090/anaconda3/envs/temp/lib/python3.9/site-packages/torch/nn/modules/module.py", line 1501, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/workspace/jun4090/anaconda3/envs/temp/lib/python3.9/site-packages/accelerate/hooks.py", line 166, in new_forward
+    output = module._old_forward(*args, **kwargs)
+  File "/workspace/jun4090/anaconda3/envs/temp/lib/python3.9/site-packages/transformers/models/llama/modeling_llama.py", line 1019, in forward
+    layer_outputs = decoder_layer(
+  File "/workspace/jun4090/anaconda3/envs/temp/lib/python3.9/site-packages/torch/nn/modules/module.py", line 1501, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/workspace/jun4090/anaconda3/envs/temp/lib/python3.9/site-packages/accelerate/hooks.py", line 166, in new_forward
+    output = module._old_forward(*args, **kwargs)
+  File "/workspace/jun4090/anaconda3/envs/temp/lib/python3.9/site-packages/transformers/models/llama/modeling_llama.py", line 740, in forward
+    hidden_states, self_attn_weights, present_key_value = self.self_attn(
+  File "/workspace/jun4090/anaconda3/envs/temp/lib/python3.9/site-packages/torch/nn/modules/module.py", line 1501, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/workspace/jun4090/anaconda3/envs/temp/lib/python3.9/site-packages/accelerate/hooks.py", line 166, in new_forward
+    output = module._old_forward(*args, **kwargs)
+  File "/workspace/jun4090/anaconda3/envs/temp/lib/python3.9/site-packages/transformers/models/llama/modeling_llama.py", line 381, in forward
+    attn_weights = nn.functional.softmax(attn_weights, dim=-1, dtype=torch.float32).to(query_states.dtype)
+  File "/workspace/jun4090/anaconda3/envs/temp/lib/python3.9/site-packages/torch/nn/functional.py", line 1845, in softmax
+    ret = input.softmax(dim, dtype=dtype)
+torch.cuda.OutOfMemoryError: CUDA out of memory. Tried to allocate 2.32 GiB (GPU 0; 23.65 GiB total capacity; 19.66 GiB already allocated; 2.08 GiB free; 20.91 GiB reserved in total by PyTorch) If reserved memory is >> allocated memory try setting max_split_size_mb to avoid fragmentation.  See documentation for Memory Management and PYTORCH_CUDA_ALLOC_CONF
